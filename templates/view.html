@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Student</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-info text-white">
+            <h3 class="mb-0">Search Student by Phone</h3>
+        </div>
+
+        <div class="card-body">
+            <form action="/getdetails" method="POST" class="mb-4">
+                <div class="form-group">
+                    <label>Enter Phone Number</label>
+                    <input type="text" class="form-control" name="phone" required>
+                </div>
+                <button class="btn btn-primary btn-block">Search</button>
+            </form>
+
+            {% if data %}
+            <div class="alert alert-success">
+                <h5><b>Student Details</b></h5>
+                <p><strong>ID:</strong> {{ data[0] }}</p>
+                <p><strong>Name:</strong> {{ data[1] }}</p>
+                <p><strong>Phone:</strong> {{ data[2] }}</p>
+                <p><strong>Email:</strong> {{ data[3] }}</p>
+                <p><strong>Course:</strong> {{ data[4] }}</p>
+                <p><strong>Education:</strong> {{ data[5] }}</p>
+            </div>
+            {% endif %}
+
+            <a href="/" class="btn btn-secondary">Add New Student</a>
+            <a href="/list" class="btn btn-dark">View All</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+[root@ip-172-31-37-244 Form]# cat templates/list
+cat: templates/list: No such file or directory
+[root@ip-172-31-37-244 Form]# cat templates/list.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-dark text-white">
+            <h3 class="mb-0">All Student Records</h3>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered table-striped text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Education</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="/" class="btn btn-primary">Add Student</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

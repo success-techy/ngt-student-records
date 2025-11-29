@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Student Registration Form</h3>
+        </div>
+
+        <div class="card-body">
+            <form action="/submit" method="POST">
+
+                <div class="form-group">
+                    <label>Name *</label>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input type="text" class="form-control" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+
+                <div class="form-group">
+    <label>Select Courses (You can choose multiple)</label>
+    <select name="course" class="form-control" multiple size="4">
+        <option value="Linux">Linux</option>
+        <option value="DevOps">DevOps</option>
+        <option value="Python">Python</option>
+        <option value="AWS">AWS</option>
+        <option value="Docker">Docker</option>
+        <option value="Kubernetes">Kubernetes</option>
+    </select>
+    <small class="form-text text-muted">Hold CTRL (Windows) or CMD (Mac) to select multiple</small>
+</div>
+
+                <div class="form-group">
+                    <label>Education</label>
+                    <input type="text" class="form-control" name="education">
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">Submit</button>
+            </form>
+
+            <hr>
+            <a href="/view" class="btn btn-info">Search Student</a>
+            <a href="/list" class="btn btn-secondary">View All</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
